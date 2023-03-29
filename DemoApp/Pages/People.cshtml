@@ -1,0 +1,50 @@
+﻿@page
+@using DemoApp.Models
+@model DemoApp.Pages.PeopleModel
+@{
+    ViewData["Title"] = "People Managment";
+}
+
+<div class="bg-secondary bg-opacity-10">
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+    </div> 
+</div>
+
+
+<form method="post">
+    <label class="form-label">Id</label>
+    <input type="number" name="id" />
+    <label class="form-label">Name</label>
+    <input type="text" name="name" />
+    <label class="form-label">Age</label>
+    <input type="number" name="age" />
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+<table class="table mb-3">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Person p in Model.People)
+        {
+            <tr>
+                <td>
+                    @p.Id
+                </td>
+                <td>
+                    @p.Name
+                </td>
+                <td>
+                    @p.Age
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
